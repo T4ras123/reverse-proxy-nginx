@@ -1,0 +1,25 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name pg.test.com;
+
+    location / {
+        proxy_pass http://pgadmin:80;
+#        include proxy_params;
+    }
+} 
+
+
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name 7test.com;
+        
+    location / {
+        proxy_pass http://nodejs:81;
+#        include proxy_params;
+    }
+}
